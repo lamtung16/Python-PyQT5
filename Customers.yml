@@ -1,0 +1,153 @@
+# Number of sample
+Number_of_sample: 1000
+
+# Distribution of customer
+delivery:
+          Tesla Model 3:
+                mileage:
+                        Distribution: Gaussian
+                        Parameters:
+                                  mean: 100
+                                  stddev: 20
+                SOC:
+                        Distribution: Gaussian
+                        Parameters:
+                                  mean: 90
+                                  stddev: 5
+                t0:
+                        Distribution: Gaussian
+                        Parameters:
+                                  mean: 17
+                                  stddev: 3
+                Tf:
+                        Distribution: Gaussian
+                        Parameters:
+                                  mean: 5
+                                  stddev: 1
+                mode: 0
+                probability: 0.4
+                
+          Peugeot e-208:
+                mileage:
+                        Distribution: Gaussian
+                        Parameters:
+                                  mean: 150
+                                  stddev: 30
+                SOC:
+                        Distribution: Gaussian
+                        Parameters:
+                                  mean: 80
+                                  stddev: 5
+                t0:
+                        Distribution: Gaussian
+                        Parameters:
+                                  mean: 18
+                                  stddev: 3
+                Tf:
+                        Distribution: Gaussian
+                        Parameters:
+                                  mean: 6
+                                  stddev: 5
+                mode: 1
+                probability: 0.6   
+          probability: 0.5
+
+construction:
+        Hyundai Kona Electric 39 kWh:
+              mileage:
+                      Distribution: Gaussian
+                      Parameters:
+                                mean: 80
+                                stddev: 15
+              SOC:
+                      Distribution: Gaussian
+                      Parameters:
+                                mean: 90
+                                stddev: 2
+              t0:
+                      Distribution: Gaussian
+                      Parameters:
+                                mean: 20
+                                stddev: 3
+              Tf:
+                      Distribution: Gaussian
+                      Parameters:
+                                mean: 7
+                                stddev: 3
+              mode: 1
+              probability: 0.5
+              
+        Dacia Spring Electric 45:
+              mileage:
+                      Distribution: Gaussian
+                      Parameters:
+                                mean: 90
+                                stddev: 10
+              SOC:
+                      Distribution: Gaussian
+                      Parameters:
+                                mean: 92
+                                stddev: 4
+              t0:
+                      Distribution: Gaussian
+                      Parameters:
+                                mean: 19
+                                stddev: 4
+              Tf:
+                      Distribution: Gaussian
+                      Parameters:
+                                mean: 15
+                                stddev: 3
+              mode: 0
+              probability: 0.5
+        probability: 0.3
+
+school:
+        Lucid Air Pure:
+              mileage:
+                      Distribution: Gaussian
+                      Parameters:
+                                mean: 110
+                                stddev: 30
+              SOC:
+                      Distribution: Gaussian
+                      Parameters:
+                                mean: 95
+                                stddev: 2
+              t0:
+                      Distribution: Gaussian
+                      Parameters:
+                                mean: 16
+                                stddev: 1
+              Tf:
+                      Distribution: Gaussian
+                      Parameters:
+                                mean: 5
+                                stddev: 2
+              mode: 1
+              probability: 0.5
+              
+        Tesla Model 3:
+              mileage:
+                      Distribution: Gaussian
+                      Parameters:
+                                mean: 130
+                                stddev: 20
+              SOC:
+                      Distribution: Gaussian
+                      Parameters:
+                                mean: 90
+                                stddev: 5
+              t0:
+                      Distribution: Gaussian
+                      Parameters:
+                                mean: 17
+                                stddev: 1
+              Tf:
+                      Distribution: Gaussian
+                      Parameters:
+                                mean: 8
+                                stddev: 3
+              mode: 0
+              probability: 0.5
+        probability: 0.2
