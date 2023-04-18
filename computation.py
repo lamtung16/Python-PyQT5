@@ -107,6 +107,9 @@ def compute_total_LP(all_distributions, customers_data, customer):
     Load_profile = []
     Total_LP = np.zeros(2880)
 
+    # individuals initialization
+    individuals_df = pd.DataFrame(columns=["Customer Type", "Electric Vehicle Type", "mileage", "SOC", "Start Time of Charging", "Fixed Charging duration", "Calculated Charging duration", "End Time of Charging"])
+
     for i in range(N):
         # Sample from customers
         cust = np.random.choice(all_custormers, 1, p=customers_propability)
@@ -144,7 +147,11 @@ def compute_total_LP(all_distributions, customers_data, customer):
         Lp, Tch, T = computed_LP(mileage, SOC, t0, Tf, Pm, E0, Pch0, eta, mode)
         Load_profile.append(Lp)
 
+        # append into the df
+        vehicle_data = [cust[0], Vehicle[0], mileage, SOC, t0, Tf, Tch, T]
+        individuals_df.loc[len(individuals_df)] = vehicle_data
+
         # Total load profile accumulation
         Total_LP = np.add(Total_LP, Load_profile[i])
 
-    return Total_LP
+    return Total_LP, individuals_df

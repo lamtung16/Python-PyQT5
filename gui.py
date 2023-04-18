@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'gui-TEST.ui'
+# Form implementation generated from reading ui file 'gui.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -24,23 +24,29 @@ class Ui_MainWindow(object):
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout.setObjectName("verticalLayout")
         self.Btn_Simulate = QtWidgets.QPushButton(self.centralwidget)
-        self.Btn_Simulate.setGeometry(QtCore.QRect(670, 790, 111, 31))
+        self.Btn_Simulate.setGeometry(QtCore.QRect(670, 790, 121, 41))
         self.Btn_Simulate.setObjectName("Btn_Simulate")
         self.Btn_Export = QtWidgets.QPushButton(self.centralwidget)
-        self.Btn_Export.setGeometry(QtCore.QRect(480, 790, 111, 31))
+        self.Btn_Export.setGeometry(QtCore.QRect(470, 790, 121, 41))
         self.Btn_Export.setObjectName("Btn_Export")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(640, 10, 71, 31))
+        self.label.setGeometry(QtCore.QRect(510, 10, 101, 31))
         self.label.setObjectName("label")
         self.cBox_Customer = QtWidgets.QComboBox(self.centralwidget)
-        self.cBox_Customer.setGeometry(QtCore.QRect(710, 10, 151, 31))
+        self.cBox_Customer.setGeometry(QtCore.QRect(620, 10, 161, 31))
         self.cBox_Customer.setObjectName("cBox_Customer")
         self.Btn_Input = QtWidgets.QPushButton(self.centralwidget)
-        self.Btn_Input.setGeometry(QtCore.QRect(370, 10, 91, 31))
+        self.Btn_Input.setGeometry(QtCore.QRect(230, 10, 91, 31))
         self.Btn_Input.setObjectName("Btn_Input")
         self.label_noti = QtWidgets.QLabel(self.centralwidget)
-        self.label_noti.setGeometry(QtCore.QRect(350, 40, 131, 21))
+        self.label_noti.setGeometry(QtCore.QRect(220, 40, 151, 21))
         self.label_noti.setObjectName("label_noti")
+        self.label_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_2.setGeometry(QtCore.QRect(886, 5, 151, 41))
+        self.label_2.setObjectName("label_2")
+        self.comboBox = QtWidgets.QComboBox(self.centralwidget)
+        self.comboBox.setGeometry(QtCore.QRect(1050, 10, 101, 31))
+        self.comboBox.setObjectName("comboBox")
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -57,6 +63,7 @@ class Ui_MainWindow(object):
         self.label.setText(_translate("MainWindow", "Customer:"))
         self.Btn_Input.setText(_translate("MainWindow", "Input file"))
         self.label_noti.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" color:#ff0000;\"><br/></span></p></body></html>"))
+        self.label_2.setText(_translate("MainWindow", "Time step (minutes):"))
 
 
 if __name__ == "__main__":
