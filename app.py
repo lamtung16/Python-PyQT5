@@ -123,12 +123,19 @@ class Ui_MainWindow(object):
     def export(self):
         filename, _ = QFileDialog.getSaveFileName(filter="CSV Files (*.csv)")
 
-        file_export = "Individuals"
+        file_export = "Total_LP"
+        # flie_export = "Individuals"
+
         if(file_export == "Total_LP"):
+            time_step = self.comboBox.currentText()
+            time_step = int(time_step)
+            length = int(2880/time_step)
+            Total_LP = self.Total_LP.reshape((length, time_step))
+            Total_LP = np.sum(Total_LP, axis=1)
             if filename:
                 with open(filename, 'w', newline='') as csvfile:
                     writer = csv.writer(csvfile)
-                    writer.writerow(self.Total_LP)
+                    writer.writerow(Total_LP)
         
         if(file_export == "Individuals"):
             self.individuals_df.to_csv(filename, index=False)
