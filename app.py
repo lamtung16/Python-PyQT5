@@ -17,6 +17,7 @@ class Ui_MainWindow(object):
 
     def setupUi(self, MainWindow):
         self.input_loaded = 0
+        self.simulated = 0
         
         # INTERFACE
         MainWindow.setObjectName("MainWindow")
@@ -70,8 +71,10 @@ class Ui_MainWindow(object):
         self.label.setAlignment(Qt.AlignCenter)
         self.label_noti.setStyleSheet('color: red;')
 
-        # add items to combobox
+        # combobox
         self.comboBox.addItems(list(['1','15','30','60']))
+        self.comboBox.currentIndexChanged.connect(self.cBox_step_change)
+
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -84,6 +87,29 @@ class Ui_MainWindow(object):
         self.label_2.setText(_translate("MainWindow", "Time step (minutes):"))
 
 
+    def cBox_step_change(self):
+        if(self.simulated == 1):
+            for i in reversed(range(self.verticalLayout.count())): 
+                self.verticalLayout.itemAt(i).widget().setParent(None)
+
+            # plot
+            sc = MplCanvas(self, width=5, height=4, dpi=90)
+
+            time_step = self.comboBox.currentText()
+            time_step = int(time_step)
+            length = int(2880/time_step)
+
+            x_value = np.linspace(0, 48, num=length)
+            Total_LP = self.Total_LP.reshape((length, time_step))
+            Total_LP = np.sum(Total_LP, axis=1)
+            sc.axes.plot(x_value, Total_LP/1000.0)
+
+            # Create toolbar, passing canvas as first parament, parent (self, the MainWindow) as second.
+            toolbar = NavigationToolbar(sc)
+            self.verticalLayout.addWidget(toolbar)
+            self.verticalLayout.addWidget(sc)
+
+    
     def select_input(self):
         filename, _ = QFileDialog.getOpenFileName(None, "Select input file...", "", "YAML Files (*.yml)")
         self.customers_data = read_data(filename)
@@ -113,6 +139,8 @@ class Ui_MainWindow(object):
         if(self.input_loaded == 0):
             self.label_noti.setText("Input is not loaded")
         else:
+            self.simulated = 1
+
             # clear
             for i in reversed(range(self.verticalLayout.count())): 
                 self.verticalLayout.itemAt(i).widget().setParent(None)
